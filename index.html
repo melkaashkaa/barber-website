@@ -5,7 +5,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BARBER — Мужская парикмахерская</title>
-
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -156,7 +158,43 @@
       border-top: 1px solid #333;
       font-size: 13px;
     }
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
 
+.gallery-grid img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.gallery-grid img:hover {
+  transform: scale(1.03);
+}
+.telegram-button {
+  display: inline-block;
+  background: #229ED9;
+  color: white;
+  padding: 14px 28px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.telegram-button:hover {
+  background: #1686bd;
+  transform: translateY(-3px);
+}
+@media (max-width: 700px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+}
     @media (max-width: 700px) {
       header {
         flex-direction: column;
@@ -179,8 +217,126 @@
       section {
         padding: 55px 7%;
       }
-    }
-  </style>
+    }@media (max-width: 700px) {
+  h1 {
+    font-size: 42px;
+  }
+
+  header {
+    padding: 18px 5%;
+  }
+
+  nav a {
+    font-size: 13px;
+    margin: 0 6px;
+  }
+
+  .gallery-grid img {
+    height: 230px;
+  }
+
+  .telegram-button,
+  .button {
+    width: 100%;
+    text-align: center;
+  }
+}
+ 
+body {
+  font-family: 'Montserrat', Arial, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+section {
+  scroll-margin-top: 20px;
+}
+
+.service {
+  transition: transform 0.3s, border-color 0.3s;
+}
+
+.service:hover {
+  transform: translateY(-8px);
+  border-color: #d6ad67;
+}
+
+.gallery-grid img {
+  transition: transform 0.4s, filter 0.4s;
+}
+
+.gallery-grid img:hover {
+  transform: scale(1.04);
+  filter: brightness(1.15);
+}
+
+.button,
+.telegram-button {
+  cursor: pointer;
+}
+
+::selection {
+  background: #d6ad67;
+  color: #111;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero .tag,
+.hero h1,
+.hero p,
+.hero .button {
+  animation: appear 0.8s ease both;
+}
+
+.hero h1 {
+  animation-delay: 0.15s;
+}
+
+.hero p {
+  animation-delay: 0.3s;
+}
+
+.hero .button {
+  animation-delay: 0.45s;
+}
+
+.booking-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 400px;
+  margin: 30px auto;
+}
+
+.booking-form input,
+.booking-form select {
+  padding: 15px;
+  border: 1px solid #555;
+  border-radius: 5px;
+  background: #222;
+  color: white;
+  font-size: 16px;
+}
+
+#formMessage {
+  color: #d6ad67;
+  margin-top: 15px;
+}
+
+ </style>
 </head>
 
 <body>
@@ -225,17 +381,79 @@
         </div>
       </div>
     </section>
+<section id="gallery">
+  <h2 class="section-title">Наши работы</h2>
+  <p class="section-description">
+    Стиль начинается с деталей.
+  </p>
 
+  <div class="gallery-grid">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRg1YF-ap4h8Y5Sx_48heWSs6iUncpt22f6RadCRjve7JP5zrdDvrxvHtg&s=10?w=800" alt="Работа барбера 1">
+
+    <img src="https://static.tildacdn.com/tild3136-3939-4030-b038-643334653939/rokkmanbarbers-low-d.jpg?w=800" alt="Работа барбера 2">
+
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2wwu3qw9E8nJ3GWyA6dait3yP-je9GDTJqe4zP5i9Pw&s=10?w=800" alt="Работа барбера 3">
+  </div>
+</section>
     <section class="contact" id="contact">
       <h2 class="section-title">Ждём тебя!</h2>
       <p>Позвони нам и выбери удобное время.</p>
+
+<form class="booking-form" id="bookingForm">
+  <input
+    type="text"
+    id="clientName"
+    placeholder="Твоё имя"
+    required
+  >
+
+  <select id="service" required>
+    <option value="">Выбери услугу</option>
+    <option>Мужская стрижка</option>
+    <option>Стрижка бороды</option>
+    <option>Комплекс</option>
+  </select>
+
+  <button type="submit" class="button">
+    Отправить заявку
+  </button>
+</form>
+
+<p id="formMessage"></p>
+
       <a class="button" href="tel:+79990000000">Позвонить</a>
+      <a
+  class="telegram-button"
+  href="https://t.me/y00mb"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  Записаться в Telegram
+</a>
     </section>
   </main>
 
   <footer>
     © 2026 BARBER. Учебный проект.
   </footer>
+
+
+<script>
+  const form = document.getElementById("bookingForm");
+
+  form.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const name = document.getElementById("clientName").value;
+    const service = document.getElementById("service").value;
+
+    document.getElementById("formMessage").textContent =
+      "Спасибо, " + name + "! Твоя заявка на услугу «" +
+      service + "» подготовлена.";
+
+    form.reset();
+  });
+</script>
 
 </body>
 </html>
