@@ -1,0 +1,241 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BARBER — Мужская парикмахерская</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: #f5f0e8;
+      line-height: 1.6;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 8%;
+      border-bottom: 1px solid #333;
+    }
+
+    .logo {
+      font-size: 26px;
+      font-weight: bold;
+      letter-spacing: 4px;
+      color: #d6ad67;
+    }
+
+    nav a {
+      color: #eee;
+      text-decoration: none;
+      margin-left: 25px;
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      color: #d6ad67;
+    }
+
+    .hero {
+      min-height: 470px;
+      padding: 100px 8%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background:
+        radial-gradient(ellipse at 80% 40%, #49351e 0%, transparent 45%),
+        linear-gradient(120deg, #171717, #25201a);
+    }
+
+    .tag {
+      color: #d6ad67;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 12px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: clamp(42px, 7vw, 76px);
+      line-height: 1.05;
+      max-width: 650px;
+      margin-bottom: 22px;
+    }
+
+    .hero p {
+      color: #bbb;
+      max-width: 450px;
+      margin-bottom: 30px;
+    }
+
+    .button {
+      display: inline-block;
+      background: #d6ad67;
+      color: #17120b;
+      padding: 14px 25px;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 4px;
+      width: fit-content;
+      transition: 0.2s;
+    }
+
+    .button:hover {
+      background: #f0ca89;
+      transform: translateY(-2px);
+    }
+
+    section {
+      padding: 75px 8%;
+    }
+
+    .section-title {
+      font-size: 36px;
+      margin-bottom: 12px;
+    }
+
+    .section-description {
+      color: #aaa;
+      margin-bottom: 35px;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .service {
+      background: #1d1d1d;
+      border: 1px solid #333;
+      padding: 28px;
+      border-radius: 8px;
+    }
+
+    .service h3 {
+      color: #d6ad67;
+      margin-bottom: 12px;
+    }
+
+    .service p {
+      color: #aaa;
+      font-size: 14px;
+    }
+
+    .price {
+      display: block;
+      margin-top: 20px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .contact {
+      background: #1b1916;
+      text-align: center;
+    }
+
+    .contact p {
+      color: #bbb;
+      margin: 12px 0 25px;
+    }
+
+    footer {
+      padding: 25px 8%;
+      text-align: center;
+      color: #777;
+      border-top: 1px solid #333;
+      font-size: 13px;
+    }
+
+    @media (max-width: 700px) {
+      header {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      nav a {
+        margin: 0 8px;
+      }
+
+      .hero {
+        padding-top: 75px;
+        padding-bottom: 75px;
+      }
+
+      .services {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 55px 7%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">BARBER</div>
+    <nav>
+      <a href="#services">Услуги</a>
+      <a href="#contact">Контакты</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="hero">
+      <div class="tag">Мужская парикмахерская</div>
+      <h1>Твой стиль.<br>Твои правила.</h1>
+      <p>Профессиональные стрижки, аккуратная борода и внимание к каждой детали.</p>
+      <a class="button" href="#contact">Записаться</a>
+    </div>
+
+    <section id="services">
+      <h2 class="section-title">Наши услуги</h2>
+      <p class="section-description">Качество и стиль в каждой детали.</p>
+
+      <div class="services">
+        <div class="service">
+          <h3>Мужская стрижка</h3>
+          <p>Подберём форму и создадим аккуратный образ.</p>
+          <span class="price">1 000 ₽</span>
+        </div>
+
+        <div class="service">
+          <h3>Стрижка бороды</h3>
+          <p>Чёткие контуры и ухоженный внешний вид.</p>
+          <span class="price">600 ₽</span>
+        </div>
+
+        <div class="service">
+          <h3>Комплекс</h3>
+          <p>Стрижка волос и оформление бороды.</p>
+          <span class="price">1 400 ₽</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <h2 class="section-title">Ждём тебя!</h2>
+      <p>Позвони нам и выбери удобное время.</p>
+      <a class="button" href="tel:+79990000000">Позвонить</a>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 BARBER. Учебный проект.
+  </footer>
+
+</body>
+</html>
